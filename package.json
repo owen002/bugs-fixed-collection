@@ -1,0 +1,19 @@
+{
+  "name": "ie-fix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "iefix.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owen002/ie-fix.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/owen002/ie-fix/issues"
+  },
+  "homepage": "https://github.com/owen002/ie-fix#readme"
+}
