@@ -19,7 +19,6 @@ ie unsupported properties
 
 
 
-
 ######replace方法第二个参数为函数的情况
 '{0},{1},{2}'.replace(/\{(\d+)\}/g,function(a,b,c,d){console.log(a,b,c,d)})
 {0} 0 0 {0},{1},{2}
