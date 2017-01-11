@@ -23,16 +23,16 @@ ie unsupported properties
 ##项目中的问题：
 
 ######replace方法第二个参数为函数的情况
-'{0},{1},{2}'.replace(/\{(\d+)\}/g,function(a,b,c,d){console.log(a,b,c,d)})
-{0} 0 0 {0},{1},{2}
-{1} 1 4 {0},{1},{2}
-{2} 2 8 {0},{1},{2}
-"undefined,undefined,undefined"
-'{0},{1},{2}'.replace(/\{\d+\}/g,function(a,b,c,d){console.log(a,b,c,d)})
-{0} 0 {0},{1},{2} undefined
-{1} 4 {0},{1},{2} undefined
-{2} 8 {0},{1},{2} undefined
-"undefined,undefined,undefined"
+#########'{0},{1},{2}'.replace(/\{(\d+)\}/g,function(a,b,c,d){console.log(a,b,c,d)})
+#########{0} 0 0 {0},{1},{2}
+#########{1} 1 4 {0},{1},{2}
+#########{2} 2 8 {0},{1},{2}
+#########"undefined,undefined,undefined"
+#########'{0},{1},{2}'.replace(/\{\d+\}/g,function(a,b,c,d){console.log(a,b,c,d)})
+#########{0} 0 {0},{1},{2} undefined
+#########{1} 4 {0},{1},{2} undefined
+#########{2} 8 {0},{1},{2} undefined
+#########"undefined,undefined,undefined"
 
 
 ###### 有父层和多个子层div的时候，在父层监听mouseover和mouseout事件的时候，当鼠标在子层间移动的时候会触发父层的mouseover mouseout事件
