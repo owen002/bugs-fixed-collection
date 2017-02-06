@@ -1,6 +1,6 @@
 /**
  * Created by owen
- * fix ie8 not support methods
+ * fix ie8 don't support methods
  */
 
 var arrayProto = Array.prototype, stringProto = String.prototype, funcProto = Function.prototype, objectProto = Object.prototype;
@@ -8,7 +8,7 @@ var arrayProto = Array.prototype, stringProto = String.prototype, funcProto = Fu
 //indexOf
 if (!arrayProto.indexOf) {
     arrayProto.indexOf = function () {
-        var args = arrayProto.slice(arguments);
+        var args = arrayProto.slice.call(arguments);
         var len = this.length, index = args.shift() || '', indexFrom = args.shift() || 0;
         indexFrom = indexFrom < 0 ? Math.abs(indexFrom) < len ? (indexFrom + len) : 0 : indexFrom;
         for (var i = indexFrom; i < len; i++) {
@@ -54,11 +54,11 @@ if (!Array.isArray) {
 //forEach
 if (!arrayProto.forEach) {
     arrayProto.forEach = function () {
-        var args = arrayProto.slice(arguments);
+        var args = arrayProto.slice.call(arguments);
+        var callback = args.shift(), context = args.shift() || this;
         if (typeof callback != 'function') {
             throw new Error('foreach needs a callback function');
         }
-        var callback = args.shift(), context = args.shift() || this;
         var _this = this;
         for (var i = 0, j = _this.length; i < j; i++) {
             callback.call(context, _this[i], i);
@@ -94,12 +94,10 @@ if (!arrayProto.forEach) {
 //filter
 if (!arrayProto.filter) {
     Array.prototype.filter = function (fun/*, thisArg*/) {
-        'use strict';
-        if (this === void 0 || this === null) {
-            throw new TypeError();
+        if(!this){
+            throw new Error('this needs to be an array');
         }
-        var t = Object(this);
-        var len = t.length >>> 0;
+        var t = Object(this),len = t.length >>> 0;
         if (typeof fun !== 'function') {
             throw new TypeError();
         }
@@ -131,7 +129,7 @@ if (!stringProto.trim) {
 //bind
 if (!funcProto.bind) {
     funcProto.bind = function () {
-        var args = arrayProto.slice(arguments);
+        var args = arrayProto.slice.call(arguments);
         if (typeof this !== "function") {
             throw new Error('bind need a function')
         }
@@ -147,7 +145,7 @@ if (!funcProto.bind) {
 //keys
 if (!Object.keys) {
     Object.keys = function () {
-        var args = arrayProto.slice(arguments);
+        var args = arrayProto.slice.call(arguments);
         var obj = args.shift(), arr = [];
         if (typeof obj !== 'object') {
             throw new Error('Object.keys error:param need an object');
